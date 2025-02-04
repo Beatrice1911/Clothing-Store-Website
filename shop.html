@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - Lucy Concepts</title>
+    <link rel="stylesheet" href="shop.css">
+    <link rel="stylesheet" href="css/all.css">
+</head>
+
+<body>
+    <header>
+        <div class="menu-icon">
+            <i class="fas fa-bars"></i>
+            <p>MENU</p>
+        </div>
+        <h1>Our Collections</h1>
+        <form class="search">
+            <input type="search" placeholder="Search products..." class="search-bar">
+            <button><i class="fas fa-search"></i></button>
+        </form>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="shop.html" target="_blank">Shop</a></li>
+                <li><i class="fas fa-user profile-icon"></i></li>
+            </ul>
+            <ul class="cart">
+                <li><i class="fas fa-shopping-cart cart-icon"><span class="cart-count">0</span></i></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="menu-dropdown dropdown">
+        <form class="menu-search">
+            <input type="search" placeholder="Search products..." class="menu-search-bar">
+            <button><i class="fas fa-search"></i></button>
+        </form>
+        <ul>
+            <li><a href="">HOME</a></li>
+            <li><a href="" target="_blank">SHOP</a></li>
+            <li><a href="" target="_blank">ABOUT US</a></li>
+            <li><a href="" target="_blank">CONTACT US</a></li>
+            <li id="login"><i class="fas fa-user profile-icon"></i> LOGIN/REGISTER</li>
+        </ul>
+    </div>
+    <div class="cart-dropdown dropdown">
+        <p>Cart is empty</p>
+        <button>Return to Shop</button>
+    </div>
+    <div class="profile-dropdown dropdown">
+        <div id="profile">
+            <p>Sign in</p>
+            <p id="close-btn"><i class="fas fa-close"></i> Close</p>
+        </div>
+
+        <form id="login-form">
+            <label for="email">Username or email address</label>
+            <input type="email" id="dropdown-email" placeholder="Email" required>
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit" class="login-btn">Login</button>
+            <a href="#">Forgot your password?</a>
+            <p>Don't have an account? <a href="#" target="_blank">Create an account</a></p>
+        </form>
+    </div>
+
+    <main>
+        <section class="products">
+            <div class="product">
+                <img src="Images/yiliyacoco.jpg" alt="Product Image">
+                <h3>Yiliyacoco Perfume</h3>
+                <p>&#8358;9000</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="Images/flower of story.jpg" alt="Product Image">
+                <h3>Flower of story Perfume</h3>
+                <p>&#8358;9500</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="Images/dignife.jpg" alt="Product Image">
+                <h3>Dignife Pink Pack Perfume</h3>
+                <p>&#8358;10000</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="Images/3in1 beautiful.jpg" alt="Product Image">
+                <h3>3 in 1 Beautiful Perfume</h3>
+                <p>&#8358;10000</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="Images/bag022.jpg" alt="Product Image">
+                <h3>Bag 001</h3>
+                <p>&#8358;8500</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="Images/bag023.jpg" alt="Product Image">
+                <h3>Bag 002</h3>
+                <p>&#8358;9000</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="Images/Bag 024.jpg" alt="Product Image">
+                <h3>Bag 003</h3>
+                <p>&#8358;9000</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="Images/girls shoe01.jpg" alt="Product Image">
+                <h3>Girls Shoe 001</h3>
+                <label for="size">Select Size:</label>
+                <select name="size" id="size">
+                    <option value="26">26</option>
+                    <option value="27">27</option>
+                    <option value="28">28</option>
+                    <option value="29">29</option>
+                    <option value="30">30</option>
+                    <option value="31">31</option>
+                    <option value="32">32</option>
+                    <option value="33">33</option>
+                    <option value="34">34</option>
+                </select>
+                <p>Sizes: 26-30 &#8358;13800</p>
+                <p>Sizes: 31-36 &#8358;14000</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="Images/lingerie001.jpg" alt="Product Image">
+                <h3>Lingerie (Up and Down)</h3>
+                <label for="size">Select Size:</label>
+                <select name="size" id="size">
+                    <option value="s">S</option>
+                    <option value="m">M</option>
+                    <option value="l">L</option>
+                    <option value="xl">XL</option>
+                    <option value="xxl">XXL</option>
+                    <option value="xxxl">XXXL</option>
+                </select>
+                <p>&#8358;4000</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="Images/12 inches ringlight.jpg" alt="Product Image">
+                <h3>12 Inches Ringlight with Tripod</h3>
+                <p>&#8358;28000</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="Images/10 inches ringlight.jpg" alt="Product Image">
+                <h3>10 Inches Ringlight with Tripod</h3>
+                <p>&#8358;25500</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="Images/black mask.jpg" alt="Product Image">
+                <h3>Black Face Mask</h3>
+                <p>&#8358;3500</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="Images/beard oil.jpg" alt="Product Image">
+                <h3>Beard Growth Oil</h3>
+                <p>&#8358;3400</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="Images/laptop table 60cm.jpg" alt="Product Image">
+                <h3>Laptop Table 60cm</h3>
+                <p>&#8358;28000</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="Images/fibroid tea.jpg" alt="Product Image">
+                <h3>Fibroid Tea</h3>
+                <p>&#8358;7000</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="Images/flat tummy tea.jpg" alt="Product Image">
+                <h3>Flat Tummy Tea with Moringa</h3>
+                <p>&#8358;7000</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="Images/mini sewing machine.jpg" alt="Product Image">
+                <h3>Mini Sewing Machine</h3>
+                <p>&#8358;20500</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="Images/kitchen napkin.jpg" alt="Product Image">
+                <h3>Kitchen Napkin(12 pieces)</h3>
+                <p>&#8358;5000</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="Images/costume jewelry 001.jpg" alt="Product Image">
+                <h3>Costume Jewelry 001</h3>
+                <p>&#8358;30000</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="Images/costume jewelry 002.jpg" alt="Product Image">
+                <h3>Costume Jewelry 002</h3>
+                <p>&#8358;30000</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="Images/costume jewelry 003.jpg" alt="Product Image">
+                <h3>Costume Jewelry 003</h3>
+                <p>&#8358;30000</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="Images/costume jewelry 004.jpg" alt="Product Image">
+                <h3>Costume Jewelry 004</h3>
+                <p>&#8358;30000</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="Images/costume jewelry 005.jpg" alt="Product Image">
+                <h3>Costume Jewelry 005</h3>
+                <p>&#8358;30000</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="Images/costume jewelry 006.jpg" alt="Product Image">
+                <h3>Costume Jewelry 006</h3>
+                <p>&#8358;30000</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Lucy Concepts. All Rights Reserved.</p>
+        <a href="#">Terms of Service</a>
+        <a href="#">Privacy Policy</a>
+    </footer>
+
+    <script src="shopScript.js"></script>
+</body>
+
+</html>
