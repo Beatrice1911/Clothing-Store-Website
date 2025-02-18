@@ -154,7 +154,7 @@ class ShoppingCart {
                         </div>
                         <div class="product-info">
                             <p><span class="product-count" id="product-count-for-id${id}"></span>${name}</p>
-                            <p>${price}</p>
+                            <p>&#8358;${price}</p>
                             <button class="remove-button" data-id="${id}">Remove</button>
                         </div>
                     </div><br>
@@ -186,7 +186,7 @@ class ShoppingCart {
             </div>
             <div class="product-info">
                 <p><span class="product-count" id="product-count-for-id${id}"></span>${name}</p>
-                <p>${price}</p>
+                <p>&#8358;${price}</p>
                 <button class="remove-button" data-id="${id}">Remove</button>
             </div>
             </div><br>
@@ -207,7 +207,7 @@ class ShoppingCart {
             const currentProductCountSpan = document.getElementById(`product-count-for-id${id}`);
 
             if (currentProductCount > 0) {
-                currentProductCountSpan.textContent = `${currentProductCount}x`;
+                currentProductCountSpan.textContent = `${currentProductCount}x `;
             } else {
                 const productElement = document.getElementById(`slide${id}`);
                 if (productElement) {

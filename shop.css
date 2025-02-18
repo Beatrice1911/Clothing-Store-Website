@@ -21,6 +21,7 @@ header{
 .menu-icon {
     cursor: pointer;
     display: none;
+    color: #111e38;
 }
 
 .menu-icon p {
@@ -311,6 +312,7 @@ header nav a:hover,
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+    transition: all .3s ease;
 }
 .product:hover{
     transform: translateY(-5px);
@@ -598,15 +600,7 @@ footer a:hover {
     }
 
     .products {
-        display: flex;
-        flex-direction: column;
-        padding: 10px;
-    }
-
-    .product{
-        flex: 1 100%;
-        height: 400px;
-        padding-bottom: 20px;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .product img{

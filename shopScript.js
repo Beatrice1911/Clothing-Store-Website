@@ -242,13 +242,13 @@ class ShoppingCart {
             this.total = Number(savedTotal);
             this.items.forEach(({ id, imgSrc, name, price }) => {
                 productsContainer.innerHTML += `
-                    <div id="slide${id}" class="product">
-                        <div class="product-img">
+                    <div id="slide${id}" class="collection">
+                        <div class="collection-img">
                             <img src="${imgSrc}" alt="${name}">
                         </div>
-                        <div class="product-info">
+                        <div class="collection-info">
                             <p><span class="product-count" id="product-count-for-id${id}"></span>${name}</p>
-                            <p>${price}</p>
+                            <p>&#8358;${price}</p>
                             <button class="remove-button" data-id="${id}">Remove</button>
                         </div>
                     </div><br>
@@ -273,14 +273,14 @@ class ShoppingCart {
         const currentProductCount = totalCountPerProduct[product.id];
         const currentProductCountSpan = document.getElementById(`product-count-for-id${id}`);
 
-        currentProductCount > 1 ? currentProductCountSpan.textContent = `${currentProductCount}x` : productsContainer.innerHTML += `            
+        currentProductCount > 1 ? currentProductCountSpan.textContent = `${currentProductCount}x ` : productsContainer.innerHTML += `            
             <div id="slide${id}" class="collection">
                 <div class="collection-img">
                     <img src="${imgSrc}" alt="${name}">
                 </div>
                 <div class="collection-info">
                     <p><span class="product-count" id="product-count-for-id${id}"></span>${name}</p>
-                    <p>${price}</p>
+                    <p>&#8358;${price}</p>
                     <button class="remove-button">Remove</button>
                 </div>
             </div><br>
@@ -301,7 +301,7 @@ class ShoppingCart {
             const currentProductCountSpan = document.getElementById(`product-count-for-id${id}`);
 
             if (currentProductCount > 0) {
-                currentProductCountSpan.textContent = `${currentProductCount}x`;
+                currentProductCountSpan.textContent = `${currentProductCount}x `;
             } else {
                 const productElement = document.getElementById(`slide${id}`);
                 if (productElement) {
