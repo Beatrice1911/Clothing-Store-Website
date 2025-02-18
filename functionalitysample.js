@@ -165,3 +165,65 @@ function moveSlide(n) {
     slideTimer = setInterval(() => 
     moveSlide(1), 5000);
 }*/
+
+// addItem(id, products) {
+    //     const product = products.find((item) => item.id === id);
+    //     const { name, imgSrc, price } = product;
+    //     this.items.push(product);
+
+    //     const totalCountPerProduct = {};
+    //     this.items.forEach((feature) => {
+    //         totalCountPerProduct[feature.id] = (totalCountPerProduct[feature.id] || 0) + 1;
+    //     });
+
+    //     const currentProductCount = totalCountPerProduct[product.id];
+    //     const currentProductCountSpan = document.getElementById(`product-count-for-id${id}`);
+
+    //     currentProductCount > 1 ? currentProductCountSpan.textContent = `${currentProductCount}x` : productsContainer.innerHTML += `            
+    //         <div id="slide${id}" class="product">
+    //         <div class="product-img">
+    //             <img src="${imgSrc}" alt="${name}">
+    //         </div>
+    //         <div class="product-info">
+    //             <p><span class="product-count" id="product-count-for-id${id}"></span>${name}</p>
+    //             <p>${price}</p>
+    //             <button class="remove-button" data-id="${id}">Remove</button>
+    //         </div>
+    //         </div><br>
+    //     `;
+        
+    // };
+
+    // removeItem(id) {
+    //     this.items = this.items.filter(item => item.id !== id);
+    //     const productElement = document.getElementById(`slide${id}`);
+    //     if (productElement) {
+    //         productElement.remove();
+    //     }
+    //     totalNumberOfItems.textContent = this.getCounts();
+    //     cartCount.textContent = this.getCounts();
+    //     this.calculateTotal();
+    // }
+
+    
+
+    // clearCart() {
+    //     if (!this.items.length) {
+    //         alert("Your shopping cart is already empty");
+    //         return;
+    //     }
+
+    //     const isCartCleared = confirm("Are you sure you want to clear all items from your shopping cart?");
+
+    //     if (isCartCleared) {
+    //         this.items = [];
+    //         this.total = 0;
+    //         productsContainer.innerHTML = "";
+    //         totalNumberOfItems.textContent = 0;
+    //         cartCount.textContent = 0;
+    //         cartTotal.textContent = 0;
+    //     }
+
+    // }
+
+    

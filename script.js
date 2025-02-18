@@ -131,19 +131,40 @@ class ShoppingCart {
     constructor() {
         this.items = [];
         this.total = 0;
-        this.loadCart();
+        this.loadFromLocalStorage();
     }
 
-    saveCart() {
-        localStorage.setItem('cart', JSON.stringify(this.items));
+    saveToLocalStorage() {
+        localStorage.setItem('cartItems', JSON.stringify(this.items));
+        localStorage.setItem('cartTotal', this.total);
     }
 
-    loadCart() {
-        const storedCart = localStorage.getItem('cart');
-        this.items = storedCart ? JSON.parse(storedCart) : [];
+    loadFromLocalStorage() {
+        const savedItems = localStorage.getItem('cartItems');
+        const savedTotal = localStorage.getItem('cartTotal');
+
+        if (savedItems) {
+            this.items = JSON.parse(savedItems);
+            this.total = Number(savedTotal);
+            this.items.forEach(({ id, imgSrc, name, price }) => {
+                productsContainer.innerHTML += `
+                    <div id="slide${id}" class="product">
+                        <div class="product-img">
+                            <img src="${imgSrc}" alt="${name}">
+                        </div>
+                        <div class="product-info">
+                            <p><span class="product-count" id="product-count-for-id${id}"></span>${name}</p>
+                            <p>${price}</p>
+                            <button class="remove-button" data-id="${id}">Remove</button>
+                        </div>
+                    </div><br>
+                `;
+            });
+            totalNumberOfItems.textContent = this.getCounts();
+            cartCount.textContent = this.getCounts();
+            cartTotal.textContent = `${this.total}`;
+        }
     }
-
-
 
     addItem(id, products) {
         const product = products.find((item) => item.id === id);
@@ -158,29 +179,47 @@ class ShoppingCart {
         const currentProductCount = totalCountPerProduct[product.id];
         const currentProductCountSpan = document.getElementById(`product-count-for-id${id}`);
 
-        currentProductCount > 1 ? currentProductCountSpan.textContent = `${currentProductCount}x` : productsContainer.innerHTML += `            
+        currentProductCount > 1 ? currentProductCountSpan.textContent = `${currentProductCount}x ` : productsContainer.innerHTML += `            
             <div id="slide${id}" class="product">
-                <div class="product-img">
-                    <img src="${imgSrc}" alt="${name}">
-                </div>
-                <div class="product-info">
-                    <p><span class="product-count" id="product-count-for-id${id}"></span>${name}</p>
-                    <p>${price}</p>
-                    <button class="remove-button">Remove</button>
-                </div>
+            <div class="product-img">
+                <img src="${imgSrc}" alt="${name}">
+            </div>
+            <div class="product-info">
+                <p><span class="product-count" id="product-count-for-id${id}"></span>${name}</p>
+                <p>${price}</p>
+                <button class="remove-button" data-id="${id}">Remove</button>
+            </div>
             </div><br>
         `;
-
-        this.saveCart();
-
-
+        this.saveToLocalStorage();
     };
 
-    removeItem(id) {
-        this.items = this.items.filter(item => item.id !== id);
-        this.saveCart();
-        this.loadCart();
-    }
+    removeItem(id) { 
+        const itemIndex = this.items.findIndex(item => item.id === id);
+        if (itemIndex > -1) {
+            this.items.splice(itemIndex, 1);
+            const totalCountPerProduct = {};
+            this.items.forEach((feature) => {
+                totalCountPerProduct[feature.id] = (totalCountPerProduct[feature.id] || 0) + 1;
+            });
+
+            const currentProductCount = totalCountPerProduct[id];
+            const currentProductCountSpan = document.getElementById(`product-count-for-id${id}`);
+
+            if (currentProductCount > 0) {
+                currentProductCountSpan.textContent = `${currentProductCount}x`;
+            } else {
+                const productElement = document.getElementById(`slide${id}`);
+                if (productElement) {
+                    productElement.remove();
+                }
+            }
+        }
+        totalNumberOfItems.textContent = this.getCounts();
+        cartCount.textContent = this.getCounts();
+        this.calculateTotal();
+        this.saveToLocalStorage();
+    } 
 
     getCounts() {
         return this.items.length;
@@ -197,13 +236,12 @@ class ShoppingCart {
         if (isCartCleared) {
             this.items = [];
             this.total = 0;
-            this.saveCart();
             productsContainer.innerHTML = "";
             totalNumberOfItems.textContent = 0;
             cartCount.textContent = 0;
             cartTotal.textContent = 0;
+            this.saveToLocalStorage();
         }
-
     }
 
     calculateTotal() {
@@ -211,6 +249,7 @@ class ShoppingCart {
         cartTotal.textContent = `${this.total}`;
         return this.total;
     };
+    
 
 };
 
@@ -233,8 +272,14 @@ const addToCartBtns = document.getElementsByClassName("add-to-cart");
             cart.calculateTotal();
         })
     }
-); 
+);
 
+productsContainer.addEventListener('click', (event) => {
+    if (event.target.classList.contains('remove-button')) {
+        const id = Number(event.target.dataset.id);
+        cart.removeItem(id);
+    }
+});
 clearCartBtn.addEventListener('click', cart.clearCart.bind(cart));
 
 
